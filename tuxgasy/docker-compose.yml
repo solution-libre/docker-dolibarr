@@ -1,10 +1,10 @@
 version: "3.8"
 
-networks:
-  internal-pod:
-    internal: true
-  external-pod:
-    internal: false
+#networks:
+#  internal-pod:
+#    internal: true
+#  external-pod:
+#    internal: false
 
 volumes:
   dolibarr-custom:
@@ -36,14 +36,15 @@ services:
       DOLI_DB_PASSWORD_FILE: "/run/secrets/mysql-password"
       DOLI_ADMIN_LOGIN_FILE: "/run/secrets/dolibarr-admin-user"
       DOLI_ADMIN_PASSWORD_FILE: "/run/secrets/dolibarr-admin-password"
-    ports:
-      - 80:80
+    # If you don't want to use a reverse proxy (not suitable for production!)
+    #ports:
+    #  - 80:80
     volumes:
       - dolibarr-docs:/var/www/documents
       - dolibarr-custom:/var/www/html/custom
-    networks:
-      - internal-pod
-      - external-pod
+#    networks:
+#      - internal-pod
+#      - external-pod
 
   mysql:
     image: library/mariadb:latest
@@ -57,5 +58,5 @@ services:
       MYSQL_PASSWORD_FILE: "/run/secrets/mysql-password"
     volumes:
       - mysql-data:/var/lib/mysql
-    networks:
-      - internal-pod
+#    networks:
+#      - internal-pod
