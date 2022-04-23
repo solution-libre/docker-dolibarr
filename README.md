@@ -23,7 +23,7 @@ work that maintains great [Docker images of Dolibarr](https://github.com/tuxgasy
 cd /opt
 git clone https://github.com/solution-libre/docker-dolibarr.git dolibarr
 cd dolibarr
-cp -r .secrets.dist .secrets
+cp -r tuxgasy/secrets .secrets
 ```
 
 Declare environment variables or copy the `.env.dist` to `.env` and adjust its values.
