@@ -37,6 +37,14 @@ networks:
     external: true
 
 secrets:
+  mysql-user:
+    file: ../.secrets/mysql_user.secret
+  mysql-password:
+    file: ../.secrets/mysql_password.secret
+  dolibarr-admin-user:
+    file: ../.secrets/dolibarr_admin_username.secret
+  dolibarr-admin-password:
+    file: ../.secrets/dolibarr_admin_password.secret
   smtpd-user:
     file: ../.secrets/smtpd_user.secret
   smtpd-password:
