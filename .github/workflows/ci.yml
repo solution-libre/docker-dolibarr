@@ -1,0 +1,22 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  check-docker-compose-syntax:
+    runs-on: ubuntu-latest
+    container:
+      image: docker/compose:1.28.2
+    steps:
+      - uses: actions/checkout@v2
+      - name: Check Docker Compose file syntax
+        run: docker-compose --env-file .env.dist config -q
+  check-readme-syntax:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    - name: Lint Markdown
+      uses: actionshub/markdownlint@1.2.0
