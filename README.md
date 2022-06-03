@@ -11,7 +11,7 @@
 
 ## Description
 
-Docker-compose setup for starting [Dolibarr](https://www.dolibarr.org/).
+Docker-compose setup for starting [Dolibarr](https://www.dolibarr.org/) with [Træfik](https://traefik.io/).
 
 The [main Compose file](https://github.com/solution-libre/docker-dolibarr/blob/main/tuxgasy/docker-compose.yml),
 which is present in the `barcus` folder, is a copy of the [Garcia Michel](https://github.com/tuxgasy/docker-dolibarr)
