@@ -13,10 +13,12 @@ jobs:
       - uses: actions/checkout@v2
       - name: Check Docker Compose file syntax
         run: docker-compose --env-file .env.dist config -q
-  check-readme-syntax:
+  check-markdown-syntax:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
     - name: Lint Markdown
-      uses: actionshub/markdownlint@1.2.0
+      uses: articulate/actions-markdownlint@v1
+      with:
+        files: '**/*.md'
