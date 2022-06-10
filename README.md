@@ -12,10 +12,11 @@
 
 ## Description
 
-Docker-compose setup for starting [Dolibarr](https://www.dolibarr.org/) with [Træfik](https://traefik.io/).
+[Docker Compose](https://docs.docker.com/compose/) setup for starting [Dolibarr](https://www.dolibarr.org/)
+with [Træfik](https://traefik.io/).
 
 The [main Compose file](https://github.com/solution-libre/docker-dolibarr/blob/main/tuxgasy/docker-compose.yml),
-which is present in the `barcus` folder, is a copy of the [Garcia Michel](https://github.com/tuxgasy/docker-dolibarr)
+which is present in the `tuxgasy` folder, is a copy of the [Garcia Michel](https://github.com/tuxgasy)
 work that maintains great [Docker images of Dolibarr](https://github.com/tuxgasy/docker-dolibarr).
 
 ## Setup
@@ -38,7 +39,7 @@ Register a domain like 'dolibarr.domain.tld'.
 
 ```sh
 cd /opt/dolibarr
-docker-compose up -d
+docker compose up -d
 ```
 
 ## Reference
