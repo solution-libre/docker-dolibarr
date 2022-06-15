@@ -2,6 +2,8 @@ version: '3'
 
 services:
   dolibarr:
+    environment:
+      DOLI_URL_ROOT: "https://${HOSTNAME}"
     labels:
       traefik.enable: 'true'
       traefik.frontend.rule: "Host:${HOSTNAME}"
@@ -9,43 +11,45 @@ services:
     networks:
       - default
       - web
+    restart: unless-stopped
 
   mysql:
     networks:
       - default
+    restart: unless-stopped
 
   smtpd:
-    image: ixdotai/smtp
-    restart: unless-stopped
-    hostname: "smtpd.${HOSTNAME}"
-    volumes:
-      - ../docker-volumes/smtpd/_docker_additional_macros:/etc/exim4/_docker_additional_macros
-      - ../docker-volumes/smtpd/exim4.conf.template:/etc/exim4/exim4.conf.template
-    secrets:
-      - smtpd-user
-      - smtpd-password
     environment:
       RELAY_DOMAINS: ${SMTP_RELAY_DOMAINS}
       SMARTHOST_ADDRESS: ${SMTP_HOSTNAME}
+      SMARTHOST_ALIASES: ${SMTP_ALIASES}
+      SMARTHOST_PASSWORD_FILE: '/run/secrets/smtpd-password'
       SMARTHOST_PORT: ${SMTP_PORT}
       SMARTHOST_USER_FILE: '/run/secrets/smtpd-user'
-      SMARTHOST_PASSWORD_FILE: '/run/secrets/smtpd-password'
-      SMARTHOST_ALIASES: ${SMTP_ALIASES}
+    hostname: "smtpd.${HOSTNAME}"
+    image: ixdotai/smtp
+    restart: unless-stopped
+    secrets:
+      - smtpd-password
+      - smtpd-user
+    volumes:
+      - ../docker-volumes/smtpd/_docker_additional_macros:/etc/exim4/_docker_additional_macros
+      - ../docker-volumes/smtpd/exim4.conf.template:/etc/exim4/exim4.conf.template
 
 networks:
   web:
     external: true
 
 secrets:
-  mysql-user:
-    file: ../.secrets/mysql_user.secret
-  mysql-password:
-    file: ../.secrets/mysql_password.secret
-  dolibarr-admin-user:
-    file: ../.secrets/dolibarr_admin_username.secret
   dolibarr-admin-password:
     file: ../.secrets/dolibarr_admin_password.secret
-  smtpd-user:
-    file: ../.secrets/smtpd_user.secret
+  dolibarr-admin-user:
+    file: ../.secrets/dolibarr_admin_username.secret
+  mysql-password:
+    file: ../.secrets/mysql_password.secret
+  mysql-user:
+    file: ../.secrets/mysql_user.secret
   smtpd-password:
     file: ../.secrets/smtpd_password.secret
+  smtpd-user:
+    file: ../.secrets/smtpd_user.secret
