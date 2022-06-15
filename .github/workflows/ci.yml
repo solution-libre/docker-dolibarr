@@ -8,11 +8,11 @@ jobs:
   check-docker-compose-syntax:
     runs-on: ubuntu-latest
     container:
-      image: docker/compose:1.28.2
+      image: docker:latest
     steps:
       - uses: actions/checkout@v2
       - name: Check Docker Compose file syntax
-        run: docker-compose --env-file .env.dist config -q
+        run: docker compose --env-file .env.dist config -q
   check-markdown-syntax:
     runs-on: ubuntu-latest
     steps:
