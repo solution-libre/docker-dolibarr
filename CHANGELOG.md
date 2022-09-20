@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <!-- markdownlint-configure-file { "MD024": { "allow_different_nesting": true } } -->
 
+## [2.1.0] 2022-09-20
+
+### Added
+
+- Add cron as sidecar container.
+
 ## [2.0.0] 2022-07-15
 
 ### Added
@@ -47,7 +53,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Docker-compose setup for starting Dolibarr with Træfik.
 
+[2.1.0]: https://github.com/solution-libre/docker-dolibarr/compare/v2.0.0...v2.1.0
 [2.0.0]: https://github.com/solution-libre/docker-dolibarr/compare/v1.0.0...v2.0.0
 [1.0.0]: https://github.com/solution-libre/docker-dolibarr/compare/v0.1.1...v1.0.0
-[0.2.0]: https://github.com/solution-libre/docker-dolibarr/compare/v0.1.0...v0.1.1
+[0.1.1]: https://github.com/solution-libre/docker-dolibarr/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/solution-libre/docker-dolibarr/releases/tag/v0.1.0

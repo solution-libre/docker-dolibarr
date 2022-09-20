@@ -1,6 +1,30 @@
 version: '3'
 
-services:
+services: 
+  cron:
+    env_file:
+      - ./env/dolibarr.env
+    environment:
+      DOLI_CRON: 1
+      DOLI_CRON_KEY: ${DOLI_CRON_KEY}
+      DOLI_CRON_USER: ${DOLI_CRON_USER}
+      DOLI_DB_USER_FILE: /run/secrets/mysql-user
+      DOLI_DB_PASSWORD_FILE: /run/secrets/mysql-password
+      DOLI_ADMIN_LOGIN_FILE: /run/secrets/dolibarr-admin-user
+      DOLI_ADMIN_PASSWORD_FILE: /run/secrets/dolibarr-admin-password
+    image: tuxgasy/dolibarr:latest
+    restart: unless-stopped
+    secrets:
+      - dolibarr-admin-password
+      - dolibarr-admin-user
+      # - dolibarr-cron-key
+      # - dolibarr-cron-user
+      - mysql-user
+      - mysql-password
+    volumes:
+      - dolibarr-docs:/var/www/documents
+      - dolibarr-custom:/var/www/html/custom
+
   dolibarr:
     environment:
       DOLI_URL_ROOT: "https://${HOSTNAME}"
@@ -16,8 +40,6 @@ services:
     restart: unless-stopped
 
   mysql:
-    networks:
-      - default
     restart: unless-stopped
 
   smtpd:
@@ -25,9 +47,9 @@ services:
       RELAY_DOMAINS: ${SMTP_RELAY_DOMAINS}
       SMARTHOST_ADDRESS: ${SMTP_HOSTNAME}
       SMARTHOST_ALIASES: ${SMTP_ALIASES}
-      SMARTHOST_PASSWORD_FILE: '/run/secrets/smtpd-password'
+      SMARTHOST_PASSWORD_FILE: /run/secrets/smtpd-password
       SMARTHOST_PORT: ${SMTP_PORT}
-      SMARTHOST_USER_FILE: '/run/secrets/smtpd-user'
+      SMARTHOST_USER_FILE: /run/secrets/smtpd-user
     hostname: "smtpd.${HOSTNAME}"
     image: ixdotai/smtp
     restart: unless-stopped
@@ -47,6 +69,10 @@ secrets:
     file: ../.secrets/dolibarr_admin_password.secret
   dolibarr-admin-user:
     file: ../.secrets/dolibarr_admin_username.secret
+  # dolibarr-cron-key:
+  #   file: ../.secrets/dolibarr_cron_key.secret
+  # dolibarr-cron-user:
+  #   file: ../.secrets/dolibarr_cron_user.secret
   mysql-password:
     file: ../.secrets/mysql_password.secret
   mysql-user:
