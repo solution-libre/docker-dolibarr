@@ -4,12 +4,14 @@ services:
   cron:
     env_file:
       - ./env/dolibarr.env
+    depends_on:
+      - postgres
     environment:
       DOLI_CRON: 1
       DOLI_CRON_KEY: ${DOLI_CRON_KEY}
       DOLI_CRON_USER: ${DOLI_CRON_USER}
-      DOLI_DB_USER_FILE: /run/secrets/mysql-user
-      DOLI_DB_PASSWORD_FILE: /run/secrets/mysql-password
+      DOLI_DB_USER_FILE: /run/secrets/postgres-user
+      DOLI_DB_PASSWORD_FILE: /run/secrets/postgres-password
       DOLI_ADMIN_LOGIN_FILE: /run/secrets/dolibarr-admin-user
       DOLI_ADMIN_PASSWORD_FILE: /run/secrets/dolibarr-admin-password
     image: tuxgasy/dolibarr:latest
@@ -19,15 +21,21 @@ services:
       - dolibarr-admin-user
       # - dolibarr-cron-key
       # - dolibarr-cron-user
-      - mysql-user
-      - mysql-password
+      - postgres-user
+      - postgres-password
     volumes:
       - dolibarr-docs:/var/www/documents
       - dolibarr-custom:/var/www/html/custom
 
   dolibarr:
+    env_file:
+      - ./env/dolibarr.env
     environment:
       DOLI_URL_ROOT: "https://${HOSTNAME}"
+      DOLI_ADMIN_LOGIN_FILE: /run/secrets/dolibarr-admin-user
+      DOLI_ADMIN_PASSWORD_FILE: /run/secrets/dolibarr-admin-password
+      DOLI_DB_PASSWORD_FILE: /run/secrets/postgres-password
+      DOLI_DB_USER_FILE: /run/secrets/postgres-user
     labels:
       traefik.enable: 'true'
       traefik.http.routers.dolibarr.entrypoints: websecure
@@ -38,9 +46,21 @@ services:
       - default
       - web
     restart: unless-stopped
+    secrets:
+      - dolibarr-admin-password
+      - dolibarr-admin-user
+      - postgres-password
+      - postgres-user
 
-  mysql:
+  postgres:
+    environment:
+      POSTGRES_DB: dolibarr
+      POSTGRES_PASSWORD_FILE: /run/secrets/postgres-password
+      POSTGRES_USER_FILE: /run/secrets/postgres-user
     restart: unless-stopped
+    secrets:
+      - postgres-password
+      - postgres-user
 
   smtpd:
     environment:
@@ -73,10 +93,10 @@ secrets:
   #   file: ../.secrets/dolibarr_cron_key.secret
   # dolibarr-cron-user:
   #   file: ../.secrets/dolibarr_cron_user.secret
-  mysql-password:
-    file: ../.secrets/mysql_password.secret
-  mysql-user:
-    file: ../.secrets/mysql_user.secret
+  postgres-password:
+    file: ../.secrets/postgres_password.secret
+  postgres-user:
+    file: ../.secrets/postgres_user.secret
   smtpd-password:
     file: ../.secrets/smtpd_password.secret
   smtpd-user:
