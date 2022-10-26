@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <!-- markdownlint-configure-file { "MD024": { "allow_different_nesting": true } } -->
 
+## [3.0.0] 2022-10-26
+
+### Added
+
+- Script to merge Tuxgasy work.
+
+### Changed
+
+- Use PostgreSQL instead of MySQL. Please follow [this process](https://wiki.dolibarr.org/index.php?title=FAQ_Migrate_my_Mysql_database_to_PostgreSQL).
+
 ## [2.1.0] 2022-09-20
 
 ### Added
