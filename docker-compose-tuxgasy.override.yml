@@ -8,8 +8,6 @@ services:
       - postgres
     environment:
       DOLI_CRON: 1
-      DOLI_CRON_KEY: ${DOLI_CRON_KEY}
-      DOLI_CRON_USER: ${DOLI_CRON_USER}
       DOLI_DB_USER_FILE: /run/secrets/postgres-user
       DOLI_DB_PASSWORD_FILE: /run/secrets/postgres-password
       DOLI_ADMIN_LOGIN_FILE: /run/secrets/dolibarr-admin-user
@@ -19,8 +17,8 @@ services:
     secrets:
       - dolibarr-admin-password
       - dolibarr-admin-user
-      # - dolibarr-cron-key
-      # - dolibarr-cron-user
+      - dolibarr-cron-key
+      - dolibarr-cron-user
       - postgres-user
       - postgres-password
     volumes:
@@ -37,7 +35,7 @@ services:
       DOLI_DB_PASSWORD_FILE: /run/secrets/postgres-password
       DOLI_DB_USER_FILE: /run/secrets/postgres-user
     labels:
-      traefik.enable: 'true'
+      traefik.enable: true
       traefik.http.routers.dolibarr.entrypoints: websecure
       traefik.http.routers.dolibarr.rule: "Host(`${HOSTNAME}`)"
       traefik.http.routers.dolibarr.tls.certresolver: myresolver
@@ -63,24 +61,6 @@ services:
       - postgres-password
       - postgres-user
 
-  smtpd:
-    environment:
-      RELAY_DOMAINS: ${SMTP_RELAY_DOMAINS}
-      SMARTHOST_ADDRESS: ${SMTP_HOSTNAME}
-      SMARTHOST_ALIASES: ${SMTP_ALIASES}
-      SMARTHOST_PASSWORD_FILE: /run/secrets/smtpd-password
-      SMARTHOST_PORT: ${SMTP_PORT}
-      SMARTHOST_USER_FILE: /run/secrets/smtpd-user
-    hostname: "smtpd.${HOSTNAME}"
-    image: ixdotai/smtp
-    restart: unless-stopped
-    secrets:
-      - smtpd-password
-      - smtpd-user
-    volumes:
-      - ../docker-volumes/smtpd/_docker_additional_macros:/etc/exim4/_docker_additional_macros
-      - ../docker-volumes/smtpd/exim4.conf.template:/etc/exim4/exim4.conf.template
-
 networks:
   web:
     external: true
@@ -90,15 +70,11 @@ secrets:
     file: ../.secrets/dolibarr_admin_password.secret
   dolibarr-admin-user:
     file: ../.secrets/dolibarr_admin_username.secret
-  # dolibarr-cron-key:
-  #   file: ../.secrets/dolibarr_cron_key.secret
-  # dolibarr-cron-user:
-  #   file: ../.secrets/dolibarr_cron_user.secret
+  dolibarr-cron-key:
+    file: ../.secrets/dolibarr_cron_key.secret
+  dolibarr-cron-user:
+    file: ../.secrets/dolibarr_cron_user.secret
   postgres-password:
     file: ../.secrets/postgres_password.secret
   postgres-user:
     file: ../.secrets/postgres_user.secret
-  smtpd-password:
-    file: ../.secrets/smtpd_password.secret
-  smtpd-user:
-    file: ../.secrets/smtpd_user.secret

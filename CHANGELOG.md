@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <!-- markdownlint-configure-file { "MD024": { "allow_different_nesting": true } } -->
 
+## [3.1.0] 2023-04-19
+
+### Changed
+
+- Use secret files for Cron secrets
+
+### Removed
+
+- SMTPd sidecar container
+
 ## [3.0.0] 2022-10-26
 
 ### Added
@@ -63,6 +73,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Docker-compose setup for starting Dolibarr with Træfik.
 
+[3.1.0]: https://github.com/solution-libre/docker-dolibarr/compare/v3.0.0...v3.1.0
+[3.0.0]: https://github.com/solution-libre/docker-dolibarr/compare/v2.1.0...v3.0.0
 [2.1.0]: https://github.com/solution-libre/docker-dolibarr/compare/v2.0.0...v2.1.0
 [2.0.0]: https://github.com/solution-libre/docker-dolibarr/compare/v1.0.0...v2.0.0
 [1.0.0]: https://github.com/solution-libre/docker-dolibarr/compare/v0.1.1...v1.0.0
