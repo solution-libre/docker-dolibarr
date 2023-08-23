@@ -1,0 +1,21 @@
+services: 
+  base:
+    env_file:
+      - ./tuxgasy/env/dolibarr.env
+    depends_on:
+      - postgres
+    environment:
+      DOLI_ADMIN_LOGIN_FILE: /run/secrets/dolibarr-admin-user
+      DOLI_ADMIN_PASSWORD_FILE: /run/secrets/dolibarr-admin-password
+      DOLI_DB_PASSWORD_FILE: /run/secrets/postgres-password
+      DOLI_DB_USER_FILE: /run/secrets/postgres-user
+    image: tuxgasy/dolibarr:latest
+    restart: unless-stopped
+    secrets:
+      - dolibarr-admin-password
+      - dolibarr-admin-user
+      - postgres-user
+      - postgres-password
+    volumes:
+      - dolibarr-docs:/var/www/documents
+      - dolibarr-custom:/var/www/html/custom

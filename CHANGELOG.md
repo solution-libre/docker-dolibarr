@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <!-- markdownlint-configure-file { "MD024": { "allow_different_nesting": true } } -->
 
+## [3.2.0] 2023-08-23
+
+### Changed
+
+- Rename the `docker-compose.*.yml` files to `compose.*.yml`
+- Use [`extends` attribute](https://docs.docker.com/compose/compose-file/05-services/#extends) to refactor dolibarr and
+  cron services
+
+### Fixed
+
+- Set cron secrets files in the environment variables of cron service
+
 ## [3.1.0] 2023-04-19
 
 ### Changed
