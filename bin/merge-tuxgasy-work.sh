@@ -29,7 +29,7 @@ git remote rm origin
 
 git filter-repo --force\
   --path-rename LICENSE:tuxgasy/LICENSE\
-  --path-rename examples/with-pgsql/docker-compose.yml:tuxgasy/docker-compose.yml\
+  --path-rename examples/with-pgsql/docker-compose.yml:tuxgasy/compose.yaml\
   --path-rename examples/with-secrets/env/dolibarr.env:tuxgasy/env/dolibarr.env\
   --path-rename examples/with-secrets/secrets/dolibarr_admin_password.secret:tuxgasy/secrets/dolibarr_admin_password.secret\
   --path-rename examples/with-secrets/secrets/dolibarr_admin_username.secret:tuxgasy/secrets/dolibarr_admin_username.secret\
@@ -54,7 +54,7 @@ sed -i\
   -e '33,35 s/./# &/'\
   -e '39,41 s/./# &/'\
   -e '44,45 s/./# &/'\
-  tuxgasy/docker-compose.yml
+  tuxgasy/compose.yaml
 
 git add tuxgasy
 git commit -m 'Adjustments of Tuxgasy files'
