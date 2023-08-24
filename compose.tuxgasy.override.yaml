@@ -8,8 +8,8 @@ services:
       file: ../compose.base.yaml
       service: base
     secrets:
-      - dolibarr-admin-password
-      - dolibarr-admin-user
+      - dolibarr-cron-key
+      - dolibarr-cron-user
 
   dolibarr:
     environment:
