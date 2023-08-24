@@ -7,11 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <!-- markdownlint-configure-file { "MD024": { "allow_different_nesting": true } } -->
 
+## [3.2.1] 2023-08-24
+
+### Changed
+
+- Rename the `compose.tuxgasy.override.yml` file to `compose.tuxgasy.override.yaml`
+
+### Fixed
+
+- Bad secret names for cron
+
 ## [3.2.0] 2023-08-23
 
 ### Changed
 
-- Rename the `docker-compose.*.yml` files to `compose.*.yml`
+- Rename the `docker-compose.*.yml` files to `compose.*.yaml`
 - Use [`extends` attribute](https://docs.docker.com/compose/compose-file/05-services/#extends) to refactor dolibarr and
   cron services
 
@@ -85,6 +95,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Docker-compose setup for starting Dolibarr with Træfik.
 
+[3.2.1]: https://github.com/solution-libre/docker-dolibarr/compare/v3.2.0...v3.2.1
 [3.2.0]: https://github.com/solution-libre/docker-dolibarr/compare/v3.1.0...v3.2.0
 [3.1.0]: https://github.com/solution-libre/docker-dolibarr/compare/v3.0.0...v3.1.0
 [3.0.0]: https://github.com/solution-libre/docker-dolibarr/compare/v2.1.0...v3.0.0
