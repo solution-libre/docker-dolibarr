@@ -85,6 +85,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Docker-compose setup for starting Dolibarr with Træfik.
 
+[3.2.0]: https://github.com/solution-libre/docker-dolibarr/compare/v3.1.0...v3.2.0
 [3.1.0]: https://github.com/solution-libre/docker-dolibarr/compare/v3.0.0...v3.1.0
 [3.0.0]: https://github.com/solution-libre/docker-dolibarr/compare/v2.1.0...v3.0.0
 [2.1.0]: https://github.com/solution-libre/docker-dolibarr/compare/v2.0.0...v2.1.0
