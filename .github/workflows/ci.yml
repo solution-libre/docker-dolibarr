@@ -17,6 +17,6 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
     - name: Lint Markdown
-      uses: articulate/actions-markdownlint@v1
+      uses: DavidAnson/markdownlint-cli2-action@v13
       with:
-        files: '**/*.md'
+        globs: '**/*.md'
