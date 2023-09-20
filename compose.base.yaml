@@ -1,5 +1,13 @@
 services: 
   base:
+    build:
+      args:
+        DOLIBARR_VERSION: ${DOLIBARR_VERSION:-latest}
+        MEMCACHED_ENABLED: ${DOLIBARR_MEMCACHED_ENABLED:-false}
+        XDEBUG_ENABLED: ${DOLIBARR_XDEBUG_ENABLED:-false}
+      context: .
+      tags:
+        - &tags soli/dolibarr:${DOLIBARR_VERSION:-latest}${DOLIBARR_MEMCACHED_ENABLED:+-memcached}${DOLIBARR_XDEBUG_ENABLED:+-xdebug}
     env_file:
       - ./tuxgasy/env/dolibarr.env
     depends_on:
@@ -9,7 +17,7 @@ services:
       DOLI_ADMIN_PASSWORD_FILE: /run/secrets/dolibarr-admin-password
       DOLI_DB_PASSWORD_FILE: /run/secrets/postgres-password
       DOLI_DB_USER_FILE: /run/secrets/postgres-user
-    image: tuxgasy/dolibarr:latest
+    image: *tags
     restart: unless-stopped
     secrets:
       - dolibarr-admin-password
