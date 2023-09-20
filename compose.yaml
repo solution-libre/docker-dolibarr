@@ -33,3 +33,7 @@ services:
     secrets:
       - dolibarr-cron-key
       - dolibarr-cron-user
+  memcached:
+    image: memcached:alpine
+    profiles:
+      - memcached

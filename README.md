@@ -44,11 +44,7 @@ docker compose up -d
 
 ## Reference
 
-### Environment variables
-
-#### `HOSTNAME`
-
-The Dolibarr hostname. Default value: 'dolibarr.domain.tld'
+See [REFERENCE.md](./REFERENCE.md)
 
 ## Development
 

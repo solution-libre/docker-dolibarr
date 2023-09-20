@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <!-- markdownlint-configure-file { "MD024": { "allow_different_nesting": true } } -->
 
+## [4.0.0] 2023-09-20
+
+### Added
+
+- Support of memcached
+- Support of Xdebug
+
+### Changed
+
+- Use Docker Compose inclusion instead of `COMPOSE_FILE` env var
+- Use an image built for Dolibarr instead of Tuxgasy image
+
 ## [3.2.1] 2023-08-24
 
 ### Changed
@@ -95,6 +107,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Docker-compose setup for starting Dolibarr with Træfik.
 
+[4.0.0]: https://github.com/solution-libre/docker-dolibarr/compare/v3.2.1...v4.0.0
 [3.2.1]: https://github.com/solution-libre/docker-dolibarr/compare/v3.2.0...v3.2.1
 [3.2.0]: https://github.com/solution-libre/docker-dolibarr/compare/v3.1.0...v3.2.0
 [3.1.0]: https://github.com/solution-libre/docker-dolibarr/compare/v3.0.0...v3.1.0
