@@ -49,7 +49,7 @@ git filter-repo --force\
   --path-rename examples/with-pgsql/docker-compose.yml:tuxgasy/compose.yaml\
   --path-rename examples/with-secrets/env/dolibarr.env:tuxgasy/env/dolibarr.env\
   --path-rename examples/with-secrets/secrets/dolibarr_admin_password.secret:tuxgasy/secrets/dolibarr_admin_password.secret\
-  --path-rename examples/with-secrets/secrets/dolibarr_admin_username.secret:tuxgasy/secrets/dolibarr_admin_username.secret\
+  --path-rename examples/with-secrets/secrets/dolibarr_admin_username.secret:tuxgasy/secrets/dolibarr_admin_username.secret
 
 git filter-repo --force\
   --path tuxgasy
