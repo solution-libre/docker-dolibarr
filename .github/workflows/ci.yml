@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Check Docker Compose file syntax
         run: docker compose --env-file .env.dist config -q
-  check-markdown-syntax:
+  check-other-syntaxes:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
@@ -21,3 +21,7 @@ jobs:
       uses: DavidAnson/markdownlint-cli2-action@v13
       with:
         globs: '**/*.md'
+    - name: Run Shellcheck
+      uses: azohra/shell-linter@latest
+      with:
+        path: 'bin/*.sh'
