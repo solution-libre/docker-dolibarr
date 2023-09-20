@@ -1,16 +1,4 @@
-services: 
-  cron:
-    environment:
-      DOLI_CRON: 1
-      DOLI_CRON_KEY_FILE: /run/secrets/dolibarr-cron-key
-      DOLI_CRON_USER_FILE: /run/secrets/dolibarr-cron-user
-    extends:
-      file: ../compose.base.yaml
-      service: base
-    secrets:
-      - dolibarr-cron-key
-      - dolibarr-cron-user
-
+services:
   dolibarr:
     environment:
       DOLI_URL_ROOT: "https://${HOSTNAME}"
@@ -37,21 +25,3 @@ services:
     secrets:
       - postgres-password
       - postgres-user
-
-networks:
-  web:
-    external: true
-
-secrets:
-  dolibarr-admin-password:
-    file: ../.secrets/dolibarr_admin_password.secret
-  dolibarr-admin-user:
-    file: ../.secrets/dolibarr_admin_username.secret
-  dolibarr-cron-key:
-    file: ../.secrets/dolibarr_cron_key.secret
-  dolibarr-cron-user:
-    file: ../.secrets/dolibarr_cron_user.secret
-  postgres-password:
-    file: ../.secrets/postgres_password.secret
-  postgres-user:
-    file: ../.secrets/postgres_user.secret
