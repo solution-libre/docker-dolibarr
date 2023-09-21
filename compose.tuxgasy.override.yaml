@@ -1,14 +1,14 @@
 services:
   dolibarr:
     environment:
-      DOLI_URL_ROOT: "https://${HOSTNAME}"
+      DOLI_URL_ROOT: "https://${DOLIBARR_HOSTNAME}"
     extends:
       file: ../compose.base.yaml
       service: base
     labels:
       traefik.enable: true
       traefik.http.routers.dolibarr.entrypoints: websecure
-      traefik.http.routers.dolibarr.rule: "Host(`${HOSTNAME}`)"
+      traefik.http.routers.dolibarr.rule: "Host(`${DOLIBARR_HOSTNAME}`)"
       traefik.http.routers.dolibarr.tls.certresolver: myresolver
       traefik.http.services.dolibarr.loadbalancer.server.port: 80
     networks:
