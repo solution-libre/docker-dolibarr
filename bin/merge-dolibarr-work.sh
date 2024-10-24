@@ -55,7 +55,7 @@ git filter-repo --force\
   --path ${REPO}
 
 git reset --hard
-git gc --aggressive 
+git gc --aggressive
 git prune
 git clean -fd
 
