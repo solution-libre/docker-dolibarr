@@ -1,7 +1,7 @@
 include:
   - path: 
       - dolibarr-docker/compose.yaml
-      - compose.tuxgasy.override.yaml
+      - compose.dolibarr-docker.override.yaml
 
 networks:
   web:

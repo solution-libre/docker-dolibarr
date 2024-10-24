@@ -17,7 +17,7 @@
 
 ARG DOLIBARR_VERSION=latest
 
-FROM dolibarr-docker/dolibarr:${DOLIBARR_VERSION}
+FROM dolibarr/dolibarr:${DOLIBARR_VERSION}
 
 LABEL org.opencontainers.image.authors='Solution Libre <contact@solution-libre.fr>'\
       org.opencontainers.image.licenses=GPL-3.0-or-later\
