@@ -2,6 +2,8 @@
 	"recommendations": [
 		"mikestead.dotenv",
 		"ymotongpoo.licenser",
+		"timonwong.shellcheck",
+		"mkhl.shfmt",
 		"davidanson.vscode-markdownlint",
 		"ms-azuretools.vscode-docker",
 		"redhat.vscode-yaml"

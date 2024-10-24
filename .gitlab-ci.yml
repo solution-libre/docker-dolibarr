@@ -19,7 +19,7 @@ include:
   - component: $CI_SERVER_FQDN/gitlab/components/lint/markdown@0.4.0
     inputs:
       stage: linting
-  - component: $CI_SERVER_FQDN/gitlab/components/lint/shell@0.4.0
+  - component: $CI_SERVER_FQDN/gitlab/components/lint/shell@0.4.1
     inputs:
       stage: linting
   - component: $CI_SERVER_FQDN/gitlab/components/changelog/parse@0.1.2

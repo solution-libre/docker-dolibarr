@@ -10,7 +10,9 @@
 			"version": "latest",
 			"enableNonRootDocker": "true",
 			"moby": "true"
-		}
+		},
+		"ghcr.io/marcozac/devcontainer-features/shellcheck:1": {},
+		"ghcr.io/devcontainers-extra/features/shfmt:1": {}
 	},
 
 	// Use this environment variable if you need to bind mount your local source code into a new container.
@@ -31,6 +33,8 @@
 				"ms-azuretools.vscode-docker",
 				"gitlab.gitlab-workflow",
 				"ymotongpoo.licenser",
+				"timonwong.shellcheck",
+				"mkhl.shfmt",
 				"davidanson.vscode-markdownlint",
 				"redhat.vscode-yaml"
 			]
