@@ -15,9 +15,9 @@
 [Docker Compose](https://docs.docker.com/compose/) setup for starting [Dolibarr](https://www.dolibarr.org/)
 with [Træfik](https://traefik.io/) by [Solution Libre].
 
-The [main Compose file](https://github.com/solution-libre/docker-dolibarr/blob/main/tuxgasy/docker-compose.yml),
-which is present in the `tuxgasy` folder, is a copy of the [Garcia Michel](https://github.com/tuxgasy)
-work that maintains great [Docker images of Dolibarr](https://github.com/tuxgasy/docker-dolibarr).
+The [main Compose file](https://usine.solution-libre.fr/docker/dolibarr/-/blob/main/dolibarr-docker/compose.yaml),
+which is present in the `dolibarr-docker` folder, is a copy of the [Dolibarr](https://github.com/Dolibarr)
+work that maintains great [Docker images of Dolibarr](https://github.com/Dolibarr/dolibarr-docker).
 
 ## Setup
 
@@ -26,7 +26,7 @@ cd /opt
 git clone https://usine.solution-libre.fr/docker/dolibarr.git
 cd dolibarr
 cp -r .secrets.dist .secrets
-cp tuxgasy/secrets/* .secrets/
+cp dolibarr-docker/secrets/* .secrets/
 ```
 
 Declare environment variables or copy the `.env.dist` to `.env` and adjust its values.
