@@ -1,3 +1,4 @@
 {
-    "licenser.projectName": "Docker Dolibarr"
+    "licenser.projectName": "Dolibarr with Docker Compose",
+	"licenser.license": "GPLv3",
 }

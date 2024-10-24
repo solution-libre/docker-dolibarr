@@ -13,7 +13,7 @@
 ## Description
 
 [Docker Compose](https://docs.docker.com/compose/) setup for starting [Dolibarr](https://www.dolibarr.org/)
-with [Træfik](https://traefik.io/).
+with [Træfik](https://traefik.io/) by [Solution Libre].
 
 The [main Compose file](https://github.com/solution-libre/docker-dolibarr/blob/main/tuxgasy/docker-compose.yml),
 which is present in the `tuxgasy` folder, is a copy of the [Garcia Michel](https://github.com/tuxgasy)
@@ -23,7 +23,7 @@ work that maintains great [Docker images of Dolibarr](https://github.com/tuxgasy
 
 ```sh
 cd /opt
-git clone https://github.com/solution-libre/docker-dolibarr.git dolibarr
+git clone https://usine.solution-libre.fr/docker/dolibarr.git
 cd dolibarr
 cp -r .secrets.dist .secrets
 cp tuxgasy/secrets/* .secrets/
@@ -48,11 +48,14 @@ See [REFERENCE.md](./REFERENCE.md)
 
 ## Development
 
-[Solution Libre](https://www.solution-libre.fr)'s repositories are open projects,
+[Solution Libre]'s repositories are open projects,
 and community contributions are essential for keeping them great.
 
-[Fork this repo on GitHub](https://github.com/solution-libre/docker-dolibarr/fork)
+[Fork this repo on our GitLab](https://usine.solution-libre.fr/docker/dolibarr/-/forks/new) or
+[on GitHub](https://github.com/solution-libre/docker-dolibarr/fork)
 
 ## Contributors
 
-The list of contributors can be found at: <https://github.com/solution-libre/docker-dolibarr/graphs/contributors>
+The list of contributors can be found at: <https://usine.solution-libre.fr/docker/dolibarr/-/graphs/main>
+
+[Solution Libre]: https://www.solution-libre.fr
