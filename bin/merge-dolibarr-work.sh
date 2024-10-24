@@ -18,7 +18,7 @@
 # along with Dolibarr with Docker Compose.  If not, see <https://www.gnu.org/licenses/>.
 
 CWD=$(pwd)
-DIR='dolibarr-docker'
+REPO='dolibarr-docker'
 
 cmd_check() {
   cmd=$1
@@ -39,31 +39,31 @@ fi
 
 cd /tmp || exit
 
-git clone https://github.com/Dolibarr/dolibarr-docker.git "${DIR}"
-cd "${DIR}" || exit
+git clone https://github.com/Dolibarr/dolibarr-docker.git "${REPO}"
+cd "${REPO}" || exit
 
 git remote rm origin
 
 git filter-repo --force\
-  --path-rename LICENSE:${DIR}/LICENSE\
-  --path-rename examples/with-pgsql/docker-compose.yml:${DIR}/compose.yaml\
-  --path-rename examples/with-secrets/env/dolibarr.env:${DIR}/env/dolibarr.env\
-  --path-rename examples/with-secrets/secrets/dolibarr_admin_password.secret:${DIR}/secrets/dolibarr_admin_password.secret\
-  --path-rename examples/with-secrets/secrets/dolibarr_admin_username.secret:${DIR}/secrets/dolibarr_admin_username.secret
+  --path-rename LICENSE:${REPO}/LICENSE\
+  --path-rename examples/with-pgsql/docker-compose.yml:${REPO}/compose.yaml\
+  --path-rename examples/with-secrets/env/dolibarr.env:${REPO}/env/dolibarr.env\
+  --path-rename examples/with-secrets/secrets/dolibarr_admin_password.secret:${REPO}/secrets/dolibarr_admin_password.secret\
+  --path-rename examples/with-secrets/secrets/dolibarr_admin_username.secret:${REPO}/secrets/dolibarr_admin_username.secret
 
 git filter-repo --force\
-  --path tuxgasy
+  --path ${REPO}
 
 git reset --hard
 git gc --aggressive 
 git prune
 git clean -fd
 
-echo 'DOLI_DB_TYPE=pgsql' >> ${DIR}/env/dolibarr.env
+echo 'DOLI_DB_TYPE=pgsql' >> ${REPO}/env/dolibarr.env
 sed -i\
   -e 's/\(DOLI_DB_HOST=\).*/\1postgres/'\
   -e 's/\(DOLI_DB_HOST_PORT=\).*/\15432/'\
-  ${DIR}/env/dolibarr.env
+  ${REPO}/env/dolibarr.env
 
 sed -i\
   -e '2,7 s/./# &/'\
@@ -71,16 +71,16 @@ sed -i\
   -e '33,35 s/./# &/'\
   -e '39,41 s/./# &/'\
   -e '44,45 s/./# &/'\
-  ${DIR}/compose.yaml
+  ${REPO}/compose.yaml
 
-git add tuxgasy
-git commit -m 'Adjustments of Tuxgasy files'
+git add ${REPO}
+git commit -m "Adjustments of ${REPO} files"
 
 cd "${CWD}" || exit
 
-git remote add tuxgasy "/tmp/${DIR}"
-git fetch tuxgasy
-git rebase ${DIR}/master
+git remote add ${REPO} "/tmp/${REPO}"
+git fetch ${REPO}
+git rebase ${REPO}/main
 
-git remote remove tuxgasy
-rm -rf "/tmp/${DIR}"
+git remote remove ${REPO}
+rm -rf "/tmp/${REPO}"
