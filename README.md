@@ -13,7 +13,7 @@
 ## Description
 
 [Docker Compose](https://docs.docker.com/compose/) setup for starting [Dolibarr](https://www.dolibarr.org/)
-with [Træfik](https://traefik.io/) by [Solution Libre].
+with [Traefik](https://traefik.io/) by [Solution Libre].
 
 The [main Compose file](https://usine.solution-libre.fr/docker/dolibarr/-/blob/main/dolibarr-docker/compose.yaml),
 which is present in the `dolibarr-docker` folder, is a copy of the [Dolibarr](https://github.com/Dolibarr)
