@@ -1,6 +1,6 @@
 include:
   - path: 
-      - tuxgasy/compose.yaml
+      - dolibarr-docker/compose.yaml
       - compose.tuxgasy.override.yaml
 
 networks:

@@ -18,7 +18,7 @@
 # along with Dolibarr with Docker Compose.  If not, see <https://www.gnu.org/licenses/>.
 
 CWD=$(pwd)
-DIR='tuxgasy-dolibarr'
+DIR='dolibarr-docker'
 
 cmd_check() {
   cmd=$1
@@ -39,17 +39,17 @@ fi
 
 cd /tmp || exit
 
-git clone https://github.com/tuxgasy/docker-dolibarr.git "${DIR}"
+git clone https://github.com/Dolibarr/dolibarr-docker.git "${DIR}"
 cd "${DIR}" || exit
 
 git remote rm origin
 
 git filter-repo --force\
-  --path-rename LICENSE:tuxgasy/LICENSE\
-  --path-rename examples/with-pgsql/docker-compose.yml:tuxgasy/compose.yaml\
-  --path-rename examples/with-secrets/env/dolibarr.env:tuxgasy/env/dolibarr.env\
-  --path-rename examples/with-secrets/secrets/dolibarr_admin_password.secret:tuxgasy/secrets/dolibarr_admin_password.secret\
-  --path-rename examples/with-secrets/secrets/dolibarr_admin_username.secret:tuxgasy/secrets/dolibarr_admin_username.secret
+  --path-rename LICENSE:${DIR}/LICENSE\
+  --path-rename examples/with-pgsql/docker-compose.yml:${DIR}/compose.yaml\
+  --path-rename examples/with-secrets/env/dolibarr.env:${DIR}/env/dolibarr.env\
+  --path-rename examples/with-secrets/secrets/dolibarr_admin_password.secret:${DIR}/secrets/dolibarr_admin_password.secret\
+  --path-rename examples/with-secrets/secrets/dolibarr_admin_username.secret:${DIR}/secrets/dolibarr_admin_username.secret
 
 git filter-repo --force\
   --path tuxgasy
@@ -59,11 +59,11 @@ git gc --aggressive
 git prune
 git clean -fd
 
-echo 'DOLI_DB_TYPE=pgsql' >> tuxgasy/env/dolibarr.env
+echo 'DOLI_DB_TYPE=pgsql' >> ${DIR}/env/dolibarr.env
 sed -i\
   -e 's/\(DOLI_DB_HOST=\).*/\1postgres/'\
   -e 's/\(DOLI_DB_HOST_PORT=\).*/\15432/'\
-  tuxgasy/env/dolibarr.env
+  ${DIR}/env/dolibarr.env
 
 sed -i\
   -e '2,7 s/./# &/'\
@@ -71,7 +71,7 @@ sed -i\
   -e '33,35 s/./# &/'\
   -e '39,41 s/./# &/'\
   -e '44,45 s/./# &/'\
-  tuxgasy/compose.yaml
+  ${DIR}/compose.yaml
 
 git add tuxgasy
 git commit -m 'Adjustments of Tuxgasy files'
@@ -80,7 +80,7 @@ cd "${CWD}" || exit
 
 git remote add tuxgasy "/tmp/${DIR}"
 git fetch tuxgasy
-git rebase tuxgasy/master
+git rebase ${DIR}/master
 
 git remote remove tuxgasy
 rm -rf "/tmp/${DIR}"

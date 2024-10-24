@@ -9,7 +9,7 @@ services:
       tags:
         - &tags soli/dolibarr:${DOLIBARR_VERSION:-latest}${DOLIBARR_MEMCACHED_ENABLED:+-memcached}${DOLIBARR_XDEBUG_ENABLED:+-xdebug}
     env_file:
-      - ./tuxgasy/env/dolibarr.env
+      - ./dolibarr-docker/env/dolibarr.env
     depends_on:
       - postgres
     environment:
