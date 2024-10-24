@@ -1,6 +1,8 @@
 {
 	"recommendations": [
 		"mikestead.dotenv",
+		"gitlab.gitlab-workflow",
+		"exiasr.hadolint",
 		"ymotongpoo.licenser",
 		"timonwong.shellcheck",
 		"mkhl.shfmt",

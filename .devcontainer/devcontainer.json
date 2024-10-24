@@ -11,6 +11,7 @@
 			"enableNonRootDocker": "true",
 			"moby": "true"
 		},
+		"ghcr.io/dhoeric/features/hadolint:1": {},
 		"ghcr.io/marcozac/devcontainer-features/shellcheck:1": {},
 		"ghcr.io/devcontainers-extra/features/shfmt:1": {}
 	},
@@ -30,12 +31,14 @@
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				"ms-azuretools.vscode-docker",
+				"mikestead.dotenv",
 				"gitlab.gitlab-workflow",
+				"exiasr.hadolint",
 				"ymotongpoo.licenser",
 				"timonwong.shellcheck",
 				"mkhl.shfmt",
 				"davidanson.vscode-markdownlint",
+				"ms-azuretools.vscode-docker",
 				"redhat.vscode-yaml"
 			]
 		}
