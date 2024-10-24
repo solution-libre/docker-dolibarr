@@ -20,10 +20,10 @@ ARG DOLIBARR_VERSION=latest
 FROM dolibarr/dolibarr:${DOLIBARR_VERSION}
 
 LABEL org.opencontainers.image.authors='Solution Libre <contact@solution-libre.fr>'\
-      org.opencontainers.image.base.name="dolibarr/dolibarr:${DOLIBARR_VERSION}" \
+      org.opencontainers.image.base.name="dolibarr/dolibarr:${DOLIBARR_VERSION}"\
       org.opencontainers.image.description='Open Source ERP & CRM for business'\
       org.opencontainers.image.licenses='GPL-3.0-or-later'\
-      org.opencontainers.image.ref.name="soli/dolibarr" \
+      org.opencontainers.image.ref.name='soli/dolibarr'\
       org.opencontainers.image.source='https://usine.solution-libre.fr/docker/dolibarr/-/tree/main/' \
       org.opencontainers.image.title='Dolibarr'\
       org.opencontainers.image.url='https://usine.solution-libre.fr/docker/dolibarr'\
