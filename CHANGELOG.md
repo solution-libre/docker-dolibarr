@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <!-- markdownlint-configure-file { "MD024": { "siblings_only": true } } -->
 
+## [5.0.0] 2024-10-25
+
+### Changed
+
+- Replaced [tuxgasy/dolibarr](https://hub.docker.com/r/tuxgasy/dolibarr) image by the new
+[offical image](https://hub.docker.com/r/dolibarr/dolibarr)
+- Renamed `docker-volumes` folder in `volumes`
+- [GitLab of Solution Libre](https://usine.solution-libre.fr/docker/dolibarr) is now the primary repository
+
 ## [4.0.0] 2023-09-20
 
 ### Added
@@ -107,13 +116,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Docker-compose setup for starting Dolibarr with Træfik.
 
-[4.0.0]: https://github.com/solution-libre/docker-dolibarr/compare/v3.2.1...v4.0.0
-[3.2.1]: https://github.com/solution-libre/docker-dolibarr/compare/v3.2.0...v3.2.1
-[3.2.0]: https://github.com/solution-libre/docker-dolibarr/compare/v3.1.0...v3.2.0
-[3.1.0]: https://github.com/solution-libre/docker-dolibarr/compare/v3.0.0...v3.1.0
-[3.0.0]: https://github.com/solution-libre/docker-dolibarr/compare/v2.1.0...v3.0.0
-[2.1.0]: https://github.com/solution-libre/docker-dolibarr/compare/v2.0.0...v2.1.0
-[2.0.0]: https://github.com/solution-libre/docker-dolibarr/compare/v1.0.0...v2.0.0
-[1.0.0]: https://github.com/solution-libre/docker-dolibarr/compare/v0.1.1...v1.0.0
-[0.1.1]: https://github.com/solution-libre/docker-dolibarr/compare/v0.1.0...v0.1.1
-[0.1.0]: https://github.com/solution-libre/docker-dolibarr/releases/tag/v0.1.0
+[5.0.0]: https://usine.solution-libre.fr/docker/dolibarr/-/compare/v4.0.0...v5.0.0
+[4.0.0]: https://usine.solution-libre.fr/docker/dolibarr/-/compare/v3.2.1...v4.0.0
+[3.2.1]: https://usine.solution-libre.fr/docker/dolibarr/-/compare/v3.2.0...v3.2.1
+[3.2.0]: https://usine.solution-libre.fr/docker/dolibarr/-/compare/v3.1.0...v3.2.0
+[3.1.0]: https://usine.solution-libre.fr/docker/dolibarr/-/compare/v3.0.0...v3.1.0
+[3.0.0]: https://usine.solution-libre.fr/docker/dolibarr/-/compare/v2.1.0...v3.0.0
+[2.1.0]: https://usine.solution-libre.fr/docker/dolibarr/-/compare/v2.0.0...v2.1.0
+[2.0.0]: https://usine.solution-libre.fr/docker/dolibarr/-/compare/v1.0.0...v2.0.0
+[1.0.0]: https://usine.solution-libre.fr/docker/dolibarr/-/compare/v0.1.1...v1.0.0
+[0.1.1]: https://usine.solution-libre.fr/docker/dolibarr/-/compare/v0.1.0...v0.1.1
+[0.1.0]: https://usine.solution-libre.fr/docker/dolibarr/-/releases/v0.1.0
