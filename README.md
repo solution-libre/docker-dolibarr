@@ -4,11 +4,12 @@
 #### Table of Contents
 
 1. [Description](#description)
-2. [Setup](#setup)
-3. [Usage](#usage)
-4. [Reference](#reference)
-5. [Development](#development)
-6. [Contributors](#contributors)
+2. [Requirements](#requirements)
+3. [Setup](#setup)
+4. [Usage](#usage)
+5. [Reference](#reference)
+6. [Development](#development)
+7. [Contributors](#contributors)
 
 ## Description
 
@@ -18,6 +19,10 @@ with [Traefik](https://traefik.io/) by [Solution Libre].
 The [main Compose file](https://usine.solution-libre.fr/docker/dolibarr/-/blob/main/dolibarr-docker/compose.yaml),
 which is present in the `dolibarr-docker` folder, is a copy of the [Dolibarr](https://github.com/Dolibarr)
 work that maintains great [Docker images of Dolibarr](https://github.com/Dolibarr/dolibarr-docker).
+
+## Requirements
+
+* [Traefik with Docker Compose](https://usine.solution-libre.fr/docker/traefik)
 
 ## Setup
 
